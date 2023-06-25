@@ -10,7 +10,7 @@ body{
     
 }
 
-#addItem{
+.addItem{
     border: 3px solid black;
     margin: 24px;
     padding: 5px;
@@ -20,7 +20,7 @@ p{
     display: flex;
     justify-content: center;
 }
-#addButton{
+.addButton{
     width: -webkit-fill-available;
     border: 2px solid;
 }

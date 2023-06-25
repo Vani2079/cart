@@ -4,6 +4,7 @@ const cartItemsEle=document.querySelector("#cartItems");
 let counter=0;
 
 
+
 function items(){
   const currentItem={
     id: new Date().getTime(),
@@ -25,13 +26,16 @@ function items(){
     button1Ele.textContent="+";
    
     let h5Ele2=document.createElement("h5");
-    counter=counter+1;
-    h5Ele2.textContent=counter;
+    counter++;
+    currentItem.counter=counter;
+    h5Ele2.textContent=currentItem.counter;
+    h5Ele2.id="h5Ele2";
     button1Ele.addEventListener("click",incrementItem,false);
     
     const button2Ele=document.createElement("button");
     button2Ele.className="item";
     button2Ele.textContent="-";
+    button2Ele.addEventListener("click",decrementItem,false);
     const removeButton=document.createElement("button");
     removeButton.textContent="Remove";
     removeButton.className="buttonRemove";
@@ -46,15 +50,17 @@ function items(){
 
     }
 else{
-  document.getElementById("h5Ele2").innerHTML=currentItem.counter;
-  // incrementItem(items);
+   incrementItem(currentItem);
 }
 }
 function incrementItem(currentItem){
   currentItem.counter=counter++;
- console.log(currentItem.counter);
+ console.log(counter);
  // h5Ele2.textContent=currentItem.counter;
- document.getElementById("h5Ele2").innerText=currentItem.counter;
+ document.getElementById("h5Ele2").innerText=counter;
 }
-
+function decrementItem(){
+  counter--;
+  document.getElementById("h5Ele2").innerText=counter;
+}
 addButtonEle.addEventListener("click",items,false);
